@@ -7,7 +7,7 @@ require("dotenv").config();
 
 // Configure nodemailer for cPanel email
 const transporter = nodemailer.createTransport({
-  host: "mail.weppso.com", // Replace with your cPanel mail server
+  host: "mail.weppso.com", 
   port: 587, // Typically 587 for TLS or 465 for SSL
   secure: false, // Set to true if using port 465 (SSL)
   auth: {
