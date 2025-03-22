@@ -2,17 +2,16 @@ const express = require("express");
 const router = express.Router();
 const User = require("../../models/ContactUs/ContactUs");
 const Subscriber = require("../../models/ContactUs/Subscriber");
-
 const nodemailer = require("nodemailer");
-require("dotenv").config(); // Load environment variables from .env file
+require("dotenv").config();
 
 // Configure nodemailer for cPanel email
 const transporter = nodemailer.createTransport({
-  host: "mail.weppso.com", // Replace with your cPanel mail server (e.g., mail.yourdomain.com)
+  host: "mail.weppso.com", // Replace with your cPanel mail server
   port: 587, // Typically 587 for TLS or 465 for SSL
   secure: false, // Set to true if using port 465 (SSL)
   auth: {
-    user: process.env.CPANEL_EMAIL, // Your cPanel email (e.g., info@weppso.com)
+    user: process.env.CPANEL_EMAIL, // Your cPanel email
     pass: process.env.CPANEL_EMAIL_PASSWORD, // Your cPanel email password
   },
   tls: {
@@ -24,10 +23,8 @@ const transporter = nodemailer.createTransport({
 // POST API to save contact form data
 router.post("/contact-us", async (req, res) => {
   try {
-    // Extract data from the request body
     const { fullname, email, organization, phone, message } = req.body;
 
-    // Validate required fields
     if (!fullname || !email || !organization || !phone || !message) {
       return res.status(400).json({
         success: false,
@@ -35,24 +32,14 @@ router.post("/contact-us", async (req, res) => {
       });
     }
 
-    // Create a new ContactUs document
-    const newContact = new User({
-      fullname,
-      email,
-      organization,
-      phone,
-      message,
-    });
-
-    // Save the document to the database
+    const newContact = new User({ fullname, email, organization, phone, message });
     await newContact.save();
 
-    // Send an email to the user
     const mailOptions = {
-      from: `"WEPPSO" <${process.env.CPANEL_EMAIL}>`, // Sender address (your cPanel email)
-      to: email, // Recipient address (user's email)
-      subject: "Thank you for contacting WEPPSO!", // Subject line
-      text: `Dear ${fullname},\n\nThank you for reaching out to WEPPSO! We have received your message and will get back to you shortly.\n\nHere are the details you provided:\n\n- Name: ${fullname}\n- Email: ${email}\n- Organization: ${organization}\n- Phone: ${phone}\n- Message: ${message}\n\nIf you have any further questions, feel free to reply to this email.\n\nBest regards,\nThe WEPPSO Team`, // Plain text body
+      from: `"WEPPSO" <${process.env.CPANEL_EMAIL}>`,
+      to: email,
+      subject: "Thank you for contacting WEPPSO!",
+      text: `Dear ${fullname},\n\nThank you for reaching out to WEPPSO! We have received your message and will get back to you shortly.\n\nHere are the details you provided:\n\n- Name: ${fullname}\n- Email: ${email}\n- Organization: ${organization}\n- Phone: ${phone}\n- Message: ${message}\n\nIf you have any further questions, feel free to reply to this email.\n\nBest regards,\nThe WEPPSO Team`,
       html: `
         <div style="font-family: Arial, sans-serif; color: #333;">
           <h2 style="color: #007BFF;">Thank you for contacting WEPPSO!</h2>
@@ -72,21 +59,25 @@ router.post("/contact-us", async (req, res) => {
           <hr>
           <p style="font-size: 12px; color: #777;">This is an automated message. Please do not reply to this email.</p>
         </div>
-      `, // HTML body (optional)
+      `,
     };
+
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error("Error sending email:", error);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to send email.",
+          error: error.message,
+        });
       } else {
-        console.log("Email sent:", info.response);
+        console.log("Email sent successfully:", info.response);
+        return res.status(201).json({
+          success: true,
+          message: "Contact form submitted and email sent successfully!",
+          data: newContact,
+        });
       }
-    });
-
-    // Send a success response
-    res.status(201).json({
-      success: true,
-      message: "Contact form submitted successfully!",
-      data: newContact,
     });
   } catch (error) {
     console.error("Error submitting contact form:", error);
@@ -96,6 +87,7 @@ router.post("/contact-us", async (req, res) => {
     });
   }
 });
+
 
 
 router.post("/subscription", async (req, res) => {
