@@ -103,6 +103,15 @@ router.post("/subscription", async (req, res) => {
       });
     }
 
+    // Check if the email already exists in the database
+    const existingSubscriber = await Subscriber.findOne({ email });
+    if (existingSubscriber) {
+      return res.status(400).json({
+        success: false,
+        message: "Already Subscribed.",
+      });
+    }
+
     // Create a new Subscriber document
     const newSubscriber = new Subscriber({
       email,
