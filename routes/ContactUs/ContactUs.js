@@ -110,6 +110,7 @@ router.post("/subscription", async (req, res) => {
 
     // Save the document to the database
     await newSubscriber.save();
+    console.log("Subscriber saved to database:", newSubscriber);
 
     // Send an email to the user
     const mailOptions = {
@@ -132,19 +133,23 @@ router.post("/subscription", async (req, res) => {
       `, // HTML body (optional)
     };
 
+    // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error("Error sending email:", error);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to send email.",
+          error: error.message,
+        });
       } else {
-        console.log("Email sent:", info.response);
+        console.log("Email sent successfully:", info.response);
+        return res.status(201).json({
+          success: true,
+          message: "Subscription successful!",
+          data: newSubscriber,
+        });
       }
-    });
-
-    // Send a success response
-    res.status(201).json({
-      success: true,
-      message: "Subscription successful!",
-      data: newSubscriber,
     });
   } catch (error) {
     console.error("Error submitting subscription form:", error);
