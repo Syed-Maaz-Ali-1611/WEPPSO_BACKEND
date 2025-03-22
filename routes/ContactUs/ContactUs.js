@@ -40,27 +40,253 @@ router.post("/contact-us", async (req, res) => {
       subject: "Thank you for contacting WEPPSO!",
       text: `Dear ${fullname},\n\nThank you for reaching out to WEPPSO! We have received your message and will get back to you shortly.\n\nHere are the details you provided:\n\n- Name: ${fullname}\n- Email: ${email}\n- Organization: ${organization}\n- Phone: ${phone}\n- Message: ${message}\n\nIf you have any further questions, feel free to reply to this email.\n\nBest regards,\nThe WEPPSO Team`,
       html: `
-        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-          <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://weppso.vercel.app/images/weppsologo.png" alt="WEPPSO Logo" style="max-width: 150px;">
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+        <head>
+        <!--[if gte mso 9]>
+        <xml>
+          <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="x-apple-disable-message-reformatting">
+          <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
+          <title></title>
+          
+            <style type="text/css">
+              
+              @media only screen and (min-width: 620px) {
+                .u-row {
+                  width: 600px !important;
+                }
+
+                .u-row .u-col {
+                  vertical-align: top;
+                }
+
+                
+                    .u-row .u-col-100 {
+                      width: 600px !important;
+                    }
+                  
+              }
+
+              @media only screen and (max-width: 620px) {
+                .u-row-container {
+                  max-width: 100% !important;
+                  padding-left: 0px !important;
+                  padding-right: 0px !important;
+                }
+
+                .u-row {
+                  width: 100% !important;
+                }
+
+                .u-row .u-col {
+                  display: block !important;
+                  width: 100% !important;
+                  min-width: 320px !important;
+                  max-width: 100% !important;
+                }
+
+                .u-row .u-col > div {
+                  margin: 0 auto;
+                }
+
+
+                .u-row .u-col img {
+                  max-width: 100% !important;
+                }
+
+}
+            
+body{margin:0;padding:0}table,td,tr{border-collapse:collapse;vertical-align:top}.ie-container table,.mso-container table{table-layout:fixed}*{line-height:inherit}a[x-apple-data-detectors=true]{color:inherit!important;text-decoration:none!important}
+
+
+table, td { color: #000000; } @media (max-width: 480px) { #u_content_heading_1 .v-container-padding-padding { padding: 10px 10px 30px 30px !important; } #u_content_heading_1 .v-font-size { font-size: 60px !important; } #u_content_heading_1 .v-text-align { text-align: left !important; } #u_content_heading_4 .v-container-padding-padding { padding: 10px 10px 30px 30px !important; } #u_content_heading_4 .v-font-size { font-size: 60px !important; } #u_content_heading_4 .v-text-align { text-align: left !important; } #u_content_divider_1 .v-container-padding-padding { padding: 10px 0px 30px !important; } #u_content_text_1 .v-text-align { text-align: left !important; } #u_content_image_2 .v-src-width { width: 95% !important; } #u_content_image_2 .v-src-max-width { max-width: 95% !important; } #u_content_button_1 .v-size-width { width: 65% !important; } #u_content_divider_2 .v-container-padding-padding { padding: 10px 0px 30px !important; } #u_content_social_1 .v-container-padding-padding { padding: 30px 10px 10px !important; } #u_content_text_2 .v-container-padding-padding { padding: 10px 10px 30px !important; } #u_content_text_3 .v-container-padding-padding { padding: 20px 4px !important; } }
+            </style>
+          
+          
+
+        <!--[if !mso]><!--><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet" type="text/css"><!--<![endif]-->
+
+        </head>
+
+        <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ecf0f1;color: #000000">
+          <!--[if IE]><div class="ie-container"><![endif]-->
+          <!--[if mso]><div class="mso-container"><![endif]-->
+          <table role="presentation" id="u_body" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #ecf0f1;width:100%" cellpadding="0" cellspacing="0">
+          <tbody>
+          <tr style="vertical-align: top">
+            <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+            <!--[if (mso)|(IE)]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #ecf0f1;"><![endif]-->
+            
+          
+          
+        <div class="u-row-container" style="padding: 0px;background-color: transparent">
+          <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+            <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+              <!--[if (mso)|(IE)]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+              
+        <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #000000;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+        <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+          <div style="background-color: #000000;height: 100%;width: 100% !important;">
+          <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
+          
+        <table style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tbody>
+            <tr>
+              <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Montserrat',sans-serif;" align="left">
+                
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
+              
+              <img align="center" border="0" src="images/image-1.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 28%;max-width: 162.4px;" width="162.4" class="v-src-width v-src-max-width"/>
+              
+            </td>
+          </tr>
+        </table>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="u_content_heading_1" style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tbody>
+            <tr>
+              <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px 30px 30px;font-family:'Montserrat',sans-serif;" align="left">
+                
+          <!--[if mso]><table role="presentation" width="100%"><tr><td><![endif]-->
+            <h1 class="v-text-align v-font-size" style="margin: 0px; color: #ffffff; line-height: 120%; text-align: left; word-wrap: break-word; font-family: 'Open Sans',sans-serif; font-size: 75px; font-weight: 400;"><span><strong>Thank You for contacting </strong></span></h1>
+          <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="u_content_heading_4" style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tbody>
+            <tr>
+              <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px 30px 30px;font-family:'Montserrat',sans-serif;" align="left">
+                
+          <!--[if mso]><table role="presentation" width="100%"><tr><td><![endif]-->
+            <h1 class="v-text-align v-font-size" style="margin: 0px; color: #ff4a17; line-height: 120%; text-align: left; word-wrap: break-word; font-family: 'Open Sans',sans-serif; font-size: 75px; font-weight: 400;"><span><strong>WEPPSO</strong></span></h1>
+          <!--[if mso]></td></tr></table><![endif]-->
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="u_content_divider_1" style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tbody>
+            <tr>
+              <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 0px 30px 30px;font-family:'Montserrat',sans-serif;" align="left">
+                
+          <table role="presentation" height="0px" align="left" border="0" cellpadding="0" cellspacing="0" width="60%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 2px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+            <tbody>
+              <tr style="vertical-align: top">
+                <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                  <span>&#160;</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="u_content_text_1" style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tbody>
+            <tr>
+              <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 30px 30px;font-family:'Montserrat',sans-serif;" align="left">
+                
+          <div class="v-text-align v-font-size" style="font-size: 14px; color: #ffffff; line-height: 170%; text-align: justify; word-wrap: break-word;">
+            <p style="line-height: 170%; margin: 0px;">Dear ${fullname},</p>
+        <p style="line-height: 170%; margin: 0px;">&nbsp;</p>
+        <p style="line-height: 170%; margin: 0px;">Thank you for reaching out to WEPPSO! We have received your message and will get back to you shortly.</p>
+        <p style="line-height: 170%; margin: 0px;">&nbsp;</p>
+        <p style="line-height: 170%; margin: 0px;">Here are the details you provided:</p>
+        <p style="line-height: 170%; margin: 0px;">&nbsp;</p>
+        <p style="line-height: 170%; margin: 0px;">- Name: ${fullname}<br />- Email: ${email}<br />- Organization: ${organization}<br />- Phone: ${phone}<br />- Message: ${message}</p>
+        <p style="line-height: 170%; margin: 0px;">&nbsp;</p>
+        <p style="line-height: 170%; margin: 0px;">&nbsp;</p>
+        <p style="line-height: 170%; margin: 0px;">If you have any further questions, feel free to reply to this email.</p>
+        <p style="line-height: 170%; margin: 0px;">Best regards, &nbsp;<br />The WEPPSO Team</p>
           </div>
-          <h2 style="color: #007BFF; text-align: center;">Thank you for contacting WEPPSO!</h2>
-          <p>Dear ${fullname},</p>
-          <p>Thank you for reaching out to WEPPSO! We have received your message and will get back to you shortly.</p>
-          <p>Here are the details you provided:</p>
-          <ul style="list-style-type: none; padding: 0;">
-            <li><strong>Name:</strong> ${fullname}</li>
-            <li><strong>Email:</strong> ${email}</li>
-            <li><strong>Organization:</strong> ${organization}</li>
-            <li><strong>Phone:</strong> ${phone}</li>
-            <li><strong>Message:</strong> ${message}</li>
-          </ul>
-          <p>If you have any further questions, feel free to reply to this email.</p>
-          <p>Best regards,</p>
-          <p><strong>The WEPPSO Team</strong></p>
-          <hr>
-          <p style="font-size: 12px; color: #777; text-align: center;">This is an automated message. Please do not reply to this email.</p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="u_content_image_2" style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tbody>
+            <tr>
+              <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 30px;font-family:'Montserrat',sans-serif;" align="left">
+                
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
+              
+              <img align="center" border="0" src="images/image-2.png" alt="image" title="image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 65%;max-width: 377px;" width="377" class="v-src-width v-src-max-width"/>
+              
+            </td>
+          </tr>
+        </table>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="u_content_button_1" style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tbody>
+            <tr>
+              <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 60px;font-family:'Montserrat',sans-serif;" align="left">
+                
+          <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
+        <div class="v-text-align" align="center">
+          <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://weppso.com/" style="height:37px; v-text-anchor:middle; width:174px;" arcsize="54%"  stroke="f" fillcolor="#ffffff"><w:anchorlock/><center style="color:#000000;"><![endif]-->
+            <a href="https://weppso.com/" target="_blank" class="v-button v-size-width v-font-size" style="box-sizing: border-box; display: inline-block; text-decoration: none; text-size-adjust: none; text-align: center; color: rgb(0, 0, 0); background: rgb(255, 255, 255); border-radius: 20px; width: 30%; max-width: 100%; word-break: break-word; overflow-wrap: break-word; font-size: 14px; line-height: inherit;"><span style="display:block;padding:10px 20px;line-height:120%;"><strong><span style="font-size: 14px; line-height: 16.8px;">Visit Us</span></strong></span>
+            </a>
+            <!--[if mso]></center></v:roundrect><![endif]-->
         </div>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+          <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+          </div>
+        </div>
+        <!--[if (mso)|(IE)]></td><![endif]-->
+              <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+            </div>
+          </div>
+          </div>
+          
+
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+          </tbody>
+          </table>
+          <!--[if mso]></div><![endif]-->
+          <!--[if IE]></div><![endif]-->
+        </body>
+
+        </html>
       `,
     };
 
@@ -89,7 +315,6 @@ router.post("/contact-us", async (req, res) => {
     });
   }
 });
-
 router.post("/subscription", async (req, res) => {
   try {
     // Extract data from the request body
