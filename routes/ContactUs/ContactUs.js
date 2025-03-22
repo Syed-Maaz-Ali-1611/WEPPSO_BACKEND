@@ -4,7 +4,6 @@ const User = require("../../models/ContactUs/ContactUs");
 const Subscriber = require("../../models/ContactUs/Subscriber");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-
 // Configure nodemailer for cPanel email
 const transporter = nodemailer.createTransport({
   host: "mail.weppso.com", 
@@ -41,12 +40,15 @@ router.post("/contact-us", async (req, res) => {
       subject: "Thank you for contacting WEPPSO!",
       text: `Dear ${fullname},\n\nThank you for reaching out to WEPPSO! We have received your message and will get back to you shortly.\n\nHere are the details you provided:\n\n- Name: ${fullname}\n- Email: ${email}\n- Organization: ${organization}\n- Phone: ${phone}\n- Message: ${message}\n\nIf you have any further questions, feel free to reply to this email.\n\nBest regards,\nThe WEPPSO Team`,
       html: `
-        <div style="font-family: Arial, sans-serif; color: #333;">
-          <h2 style="color: #007BFF;">Thank you for contacting WEPPSO!</h2>
+        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://weppso.vercel.app/images/weppsologo.png" alt="WEPPSO Logo" style="max-width: 150px;">
+          </div>
+          <h2 style="color: #007BFF; text-align: center;">Thank you for contacting WEPPSO!</h2>
           <p>Dear ${fullname},</p>
           <p>Thank you for reaching out to WEPPSO! We have received your message and will get back to you shortly.</p>
           <p>Here are the details you provided:</p>
-          <ul>
+          <ul style="list-style-type: none; padding: 0;">
             <li><strong>Name:</strong> ${fullname}</li>
             <li><strong>Email:</strong> ${email}</li>
             <li><strong>Organization:</strong> ${organization}</li>
@@ -57,7 +59,7 @@ router.post("/contact-us", async (req, res) => {
           <p>Best regards,</p>
           <p><strong>The WEPPSO Team</strong></p>
           <hr>
-          <p style="font-size: 12px; color: #777;">This is an automated message. Please do not reply to this email.</p>
+          <p style="font-size: 12px; color: #777; text-align: center;">This is an automated message. Please do not reply to this email.</p>
         </div>
       `,
     };
@@ -87,8 +89,6 @@ router.post("/contact-us", async (req, res) => {
     });
   }
 });
-
-
 
 router.post("/subscription", async (req, res) => {
   try {
@@ -128,8 +128,11 @@ router.post("/subscription", async (req, res) => {
       subject: "Thank you for Subscribing to WEPPSO!", // Subject line
       text: `Dear Subscriber,\n\nThank you for subscribing to WEPPSO! We are excited to have you on board.\n\nYou will now receive updates, news, and exclusive content from us. Stay tuned for exciting announcements!\n\nIf you have any questions or need assistance, feel free to reach out to us at ${process.env.CPANEL_EMAIL}.\n\nBest regards,\nThe WEPPSO Team`, // Plain text body
       html: `
-        <div style="font-family: Arial, sans-serif; color: #333;">
-          <h2 style="color: #007BFF;">Welcome to WEPPSO!</h2>
+        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://weppso.vercel.app/images/weppsologo.png" alt="WEPPSO Logo" style="max-width: 150px;">
+          </div>
+          <h2 style="color: #007BFF; text-align: center;">Welcome to WEPPSO!</h2>
           <p>Dear Subscriber,</p>
           <p>Thank you for subscribing to WEPPSO! We are excited to have you on board.</p>
           <p>You will now receive updates, news, and exclusive content from us. Stay tuned for exciting announcements!</p>
@@ -137,7 +140,7 @@ router.post("/subscription", async (req, res) => {
           <p>Best regards,</p>
           <p><strong>The WEPPSO Team</strong></p>
           <hr>
-          <p style="font-size: 12px; color: #777;">You are receiving this email because you subscribed to WEPPSO. If you no longer wish to receive emails, please <a href="#">unsubscribe here</a>.</p>
+          <p style="font-size: 12px; color: #777; text-align: center;">You are receiving this email because you subscribed to WEPPSO. If you no longer wish to receive emails, please <a href="#">unsubscribe here</a>.</p>
         </div>
       `, // HTML body (optional)
     };

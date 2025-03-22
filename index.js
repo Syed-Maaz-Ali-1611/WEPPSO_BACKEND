@@ -9,10 +9,12 @@ app.use(express.json())
 
 
 const contactus = require("./routes/ContactUs/ContactUs")
-
+// const porfoliodetails = require("./routes/Portfolio/Portfolio")
 require("./conn/Conn")
 
 app.use("/weppso", contactus)
+// app.use("/weppso", porfoliodetails)
+
 // Define the root route
 app.get('/', (req, res) => {
   res.send('Hello');
