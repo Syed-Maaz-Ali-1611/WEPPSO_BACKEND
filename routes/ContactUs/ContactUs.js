@@ -190,7 +190,7 @@ text-decoration: none
 </td></tr></table>
 </td></tr><tr><td><div class=t9 style="mso-line-height-rule:exactly;mso-line-height-alt:40px;line-height:40px;font-size:1px;display:block;">&nbsp;&nbsp;</div></td></tr><tr><td align=center>
 <table class=t14 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t13 style="width:600px;">
-<table class=t12 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t11 style="padding:0 0 15px 0;"><h1 class=t10 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:26px;font-weight:800;font-style:normal;font-size:24px;text-decoration:none;text-transform:none;letter-spacing:-1.56px;direction:ltr;color:#191919;text-align:left;mso-line-height-rule:exactly;mso-text-raise:1px;">Dear <span style="color : "#FF4A17">${fullname}</span>,</h1></td></tr></table>
+<table class=t12 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t11 style="padding:0 0 15px 0;"><h1 class=t10 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:26px;font-weight:800;font-style:normal;font-size:24px;text-decoration:none;text-transform:none;letter-spacing:-1.56px;direction:ltr;color:#191919;text-align:left;mso-line-height-rule:exactly;mso-text-raise:1px;">Dear <span style="color:#FF4A17;">${fullname}</span>,</h1></td></tr></table>
 </td></tr></table>
 </td></tr><tr><td align=center>
 <table class=t19 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t18 style="width:600px;">
