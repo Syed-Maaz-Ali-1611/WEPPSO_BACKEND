@@ -351,6 +351,9 @@ router.post("/subscription", async (req, res) => {
       });
     }
 
+    // Extract name from email (part before @)
+    const emailName = email.split('@')[0];
+
     // Check if the email already exists in the database
     const existingSubscriber = await Subscriber.findOne({ email });
     if (existingSubscriber) {
@@ -373,23 +376,252 @@ router.post("/subscription", async (req, res) => {
     const mailOptions = {
       from: `"WEPPSO" <${process.env.CPANEL_EMAIL}>`, // Sender address (your cPanel email)
       to: email, // Recipient address (user's email)
-      subject: "Thank you for Subscribing to WEPPSO!", // Subject line
-      text: `Dear Subscriber,\n\nThank you for subscribing to WEPPSO! We are excited to have you on board.\n\nYou will now receive updates, news, and exclusive content from us. Stay tuned for exciting announcements!\n\nIf you have any questions or need assistance, feel free to reach out to us at ${process.env.CPANEL_EMAIL}.\n\nBest regards,\nThe WEPPSO Team`, // Plain text body
+      subject: "Welcome to Weppso – Your Vision , Our Code", // Subject line
       html: `
-        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-          <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://weppso.vercel.app/images/weppsologo.png" alt="WEPPSO Logo" style="max-width: 150px;">
-          </div>
-          <h2 style="color: #007BFF; text-align: center;">Welcome to WEPPSO!</h2>
-          <p>Dear Subscriber,</p>
-          <p>Thank you for subscribing to WEPPSO! We are excited to have you on board.</p>
-          <p>You will now receive updates, news, and exclusive content from us. Stay tuned for exciting announcements!</p>
-          <p>If you have any questions or need assistance, feel free to reach out to us at <a href="mailto:${process.env.CPANEL_EMAIL}">${process.env.CPANEL_EMAIL}</a>.</p>
-          <p>Best regards,</p>
-          <p><strong>The WEPPSO Team</strong></p>
-          <hr>
-          <p style="font-size: 12px; color: #777; text-align: center;">You are receiving this email because you subscribed to WEPPSO. If you no longer wish to receive emails, please <a href="#">unsubscribe here</a>.</p>
-        </div>
+       <!--
+* This email was built using Tabular.
+* For more information, visit https://tabular.email
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+<head>
+<title></title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if !mso]>-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--<![endif]-->
+<meta name="x-apple-disable-message-reformatting" content="" />
+<meta content="target-densitydpi=device-dpi" name="viewport" />
+<meta content="true" name="HandheldFriendly" />
+<meta content="width=device-width" name="viewport" />
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
+<style type="text/css">
+table {
+border-collapse: separate;
+table-layout: fixed;
+mso-table-lspace: 0pt;
+mso-table-rspace: 0pt
+}
+table td {
+border-collapse: collapse
+}
+.ExternalClass {
+width: 100%
+}
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+line-height: 100%
+}
+body, a, li, p, h1, h2, h3 {
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%;
+}
+html {
+-webkit-text-size-adjust: none !important
+}
+body, #innerTable {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale
+}
+#innerTable img+div {
+display: none;
+display: none !important
+}
+img {
+Margin: 0;
+padding: 0;
+-ms-interpolation-mode: bicubic
+}
+h1, h2, h3, p, a {
+line-height: inherit;
+overflow-wrap: normal;
+white-space: normal;
+word-break: break-word
+}
+a {
+text-decoration: none
+}
+h1, h2, h3, p {
+min-width: 100%!important;
+width: 100%!important;
+max-width: 100%!important;
+display: inline-block!important;
+border: 0;
+padding: 0;
+margin: 0
+}
+a[x-apple-data-detectors] {
+color: inherit !important;
+text-decoration: none !important;
+font-size: inherit !important;
+font-family: inherit !important;
+font-weight: inherit !important;
+line-height: inherit !important
+}
+u + #body a {
+color: inherit;
+text-decoration: none;
+font-size: inherit;
+font-family: inherit;
+font-weight: inherit;
+line-height: inherit;
+}
+a[href^="mailto"],
+a[href^="tel"],
+a[href^="sms"] {
+color: inherit;
+text-decoration: none
+}
+</style>
+<style type="text/css">
+@media (min-width: 481px) {
+.hd { display: none!important }
+}
+</style>
+<style type="text/css">
+@media (max-width: 480px) {
+.hm { display: none!important }
+}
+</style>
+<style type="text/css">
+@media (max-width: 480px) {
+.t117{mso-line-height-alt:0px!important;line-height:0!important;display:none!important}.t118{padding-left:30px!important;padding-bottom:40px!important;padding-right:30px!important}.t115{width:353px!important}.t12{padding-bottom:20px!important}.t11{line-height:28px!important;font-size:26px!important;letter-spacing:-1.04px!important}.t165{padding:40px 30px!important}.t156{padding-bottom:36px!important}.t152{text-align:center!important}.t135,.t137,.t141,.t143,.t147,.t149{display:revert!important}.t139,.t145,.t151{vertical-align:top!important;width:44px!important}
+}
+</style>
+<!--[if !mso]>-->
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if mso]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+</head>
+<body id=body class=t171 style="min-width:100%;Margin:0px;padding:0px;background-color:#242424;"><div class=t170 style="background-color:#242424;"><table role=presentation width=100% cellpadding=0 cellspacing=0 border=0 align=center><tr><td class=t169 style="font-size:0;line-height:0;mso-line-height-rule:exactly;background-color:#242424;" valign=top align=center>
+<!--[if mso]>
+<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
+<v:fill color=#242424/>
+</v:background>
+<![endif]-->
+<table role=presentation width=100% cellpadding=0 cellspacing=0 border=0 align=center id=innerTable><tr><td><div class=t117 style="mso-line-height-rule:exactly;mso-line-height-alt:45px;line-height:45px;font-size:1px;display:block;">&nbsp;&nbsp;</div></td></tr><tr><td align=center>
+<table class=t121 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=600 class=t120 style="background-color:#F8F8F8;width:600px;">
+<table class=t119 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t118 style="padding:0 50px 60px 50px;"><table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;"><tr><td align=center>
+<table class=t8 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t7 style="background-color:#000000;width:620px;">
+<table class=t6 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t5 style="padding:40px 40px 40px 40px;"><table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;"><tr><td align=center>
+<table class=t4 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=300 class=t3 style="width:300px;">
+<table class=t2 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t1><div style="font-size:0px;"><img class=t0 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=300 height=89.390625 alt="" src="https://weppso.com/wp-content/uploads/2025/03/cropped-weppsologo.png"/></div></td></tr></table>
+</td></tr></table>
+</td></tr></table></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td><div class=t9 style="mso-line-height-rule:exactly;mso-line-height-alt:40px;line-height:40px;font-size:1px;display:block;">&nbsp;&nbsp;</div></td></tr><tr><td align=center>
+<table class=t15 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t14 style="width:600px;">
+<table class=t13 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t12 style="padding:0 0 15px 0;"><h1 class=t11 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:26px;font-weight:800;font-style:normal;font-size:24px;text-decoration:none;text-transform:none;letter-spacing:-1.56px;direction:ltr;color:#191919;text-align:left;mso-line-height-rule:exactly;mso-text-raise:1px;">Dear <span class=t10 style="margin:0;Margin:0;color:#FF4A17;mso-line-height-rule:exactly;">${emailName}</span>,</h1></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t21 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t20 style="width:600px;">
+<table class=t19 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t18 style="padding:0 0 22px 0;"><p class=t17 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Thank you for subscribing to <span class=t16 style="margin:0;Margin:0;color:#FF4A17;mso-line-height-rule:exactly;">W</span>EPPSO! We&#39;re thrilled to have you join our community. At Weppso, we specialize in delivering tailored digital solutions to elevate your business. Our expertise spans Web Development, App Development, and UI/UX Design, all aimed at enhancing your online presence and driving growth.</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t26 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t25 style="width:600px;">
+<table class=t24 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t23 style="padding:0 0 22px 0;"><p class=t22 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:800;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Our Core Services:</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t32 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t31 style="width:600px;">
+<table class=t30 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t29 style="padding:0 0 22px 15px;"><p class=t28 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;"><span class=t27 style="margin:0;Margin:0;font-weight:700;font-size:15px;color:#FF4A17;mso-line-height-rule:exactly;">* Website Development:</span> We build responsive, SEO-optimized websites that not only boost your brand but also enhance user experience. Our team ensures fast, secure, and scalable web solutions designed to increase traffic and conversions. ​&nbsp;</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t38 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t37 style="width:600px;">
+<table class=t36 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t35 style="padding:0 0 22px 15px;"><p class=t34 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;"><span class=t33 style="margin:0;Margin:0;font-weight:700;font-size:15px;color:#FF4A17;mso-line-height-rule:exactly;">* Application Development:</span> Our feature-rich mobile apps for iOS and Android are optimized for App Store SEO. Designed for high engagement and user retention, our apps are intuitive and fast.&nbsp;</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t45 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t44 style="width:600px;">
+<table class=t43 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t42 style="padding:0 0 22px 15px;"><p class=t41 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;"><span class=t40 style="margin:0;Margin:0;mso-line-height-rule:exactly;"><span class=t39 style="margin:0;Margin:0;font-weight:700;color:#FF4A17;mso-line-height-rule:exactly;">* Product UI/UX Design:</span></span> We craft visually appealing, user-friendly interfaces that improve functionality and engagement. Our designs deliver seamless navigation, driving customer satisfaction</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t50 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t49 style="width:600px;">
+<table class=t48 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t47 style="padding:0 0 22px 0;"><p class=t46 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:800;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Why Choose Weppso?</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t58 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t57 style="width:600px;">
+<table class=t56 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t55 style="padding:0 0 22px 15px;"><p class=t54 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;"><span class=t52 style="margin:0;Margin:0;mso-line-height-rule:exactly;"><span class=t51 style="margin:0;Margin:0;font-weight:700;color:#FF4A17;mso-line-height-rule:exactly;">* </span></span><span class=t53 style="margin:0;Margin:0;font-weight:700;font-size:15px;color:#FF4A17;mso-line-height-rule:exactly;">Customized Solutions:</span> We understand that each business is unique. Our solutions are tailored to meet your specific needs, ensuring alignment with your goals.</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t66 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t65 style="width:600px;">
+<table class=t64 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t63 style="padding:0 0 22px 15px;"><p class=t62 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;"><span class=t60 style="margin:0;Margin:0;mso-line-height-rule:exactly;"><span class=t59 style="margin:0;Margin:0;font-weight:700;color:#FF4A17;mso-line-height-rule:exactly;">* </span></span><span class=t61 style="margin:0;Margin:0;font-weight:700;font-size:15px;color:#FF4A17;mso-line-height-rule:exactly;">Expert Team:</span> Our team comprises seasoned professionals dedicated to delivering excellence in every project.</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t74 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t73 style="width:600px;">
+<table class=t72 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t71 style="padding:0 0 22px 15px;"><p class=t70 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;"><span class=t68 style="margin:0;Margin:0;mso-line-height-rule:exactly;"><span class=t67 style="margin:0;Margin:0;font-weight:700;color:#FF4A17;mso-line-height-rule:exactly;">* </span></span><span class=t69 style="margin:0;Margin:0;font-weight:700;font-size:15px;color:#FF4A17;mso-line-height-rule:exactly;">Proven Track Record:</span> With over 350 happy customers and 200+ completed projects, we have a history of driving success.</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t82 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t81 style="width:600px;">
+<table class=t80 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t79 style="padding:0 0 22px 15px;"><p class=t78 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;"><span class=t76 style="margin:0;Margin:0;mso-line-height-rule:exactly;"><span class=t75 style="margin:0;Margin:0;font-weight:700;color:#FF4A17;mso-line-height-rule:exactly;">* </span></span><span class=t77 style="margin:0;Margin:0;font-weight:700;font-size:15px;color:#FF4A17;mso-line-height-rule:exactly;">Award-Winning Services: </span>Our commitment to quality has been recognized with 13+ industry awards.</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t87 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t86 style="width:600px;">
+<table class=t85 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t84 style="padding:0 0 22px 0;"><p class=t83 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">We invite you to explore our portfolio to see how we&#39;ve helped businesses like yours achieve digital transformation.</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t95 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t94 style="width:600px;">
+<table class=t93 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t92 style="padding:0 0 22px 0;"><p class=t91 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Should you have any questions or need assistance, our team is here to support you at every stage of your digital journey. Feel free to reach out via email at <a class=t89 href="info@weppso.com" style="margin:0;Margin:0;font-weight:700;font-style:normal;text-decoration:none;direction:ltr;color:#333333;mso-line-height-rule:exactly;" target=_blank><span class=t88 style="margin:0;Margin:0;color:#FF4A17;mso-line-height-rule:exactly;">info@weppso.com</span></a> or call us at <span class=t90 style="margin:0;Margin:0;color:#FF4A17;mso-line-height-rule:exactly;">+92 3363344409</span>.</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t100 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t99 style="width:600px;">
+<table class=t98 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t97 style="padding:0 0 22px 0;"><p class=t96 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Welcome aboard, and we look forward to contributing to your digital success!</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t105 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t104 style="width:600px;">
+<table class=t103 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t102 style="padding:0 0 10px 0;"><p class=t101 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:700;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Best Regards,</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t110 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t109 style="width:600px;">
+<table class=t108 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t107 style="padding:0 0 22px 0;"><p class=t106 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:700;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">The Weppso Team</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td><div class=t112 style="mso-line-height-rule:exactly;mso-line-height-alt:40px;line-height:40px;font-size:1px;display:block;">&nbsp;&nbsp;</div></td></tr><tr><td align=center>
+<table class=t116 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=250 class=t115 style="background-color:#181818;overflow:hidden;width:250px;border-radius:44px 44px 44px 44px;">
+<table class=t114 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t113 style="text-align:center;line-height:44px;mso-line-height-rule:exactly;mso-text-raise:10px;"><a class=t111 href="https://weppso.com" style="display:block;margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:44px;font-weight:800;font-style:normal;font-size:12px;text-decoration:none;text-transform:uppercase;letter-spacing:2.4px;direction:ltr;color:#F8F8F8;text-align:center;mso-line-height-rule:exactly;mso-text-raise:10px;" target=_blank>VISIT WEBSITE</a></td></tr></table>
+</td></tr></table>
+</td></tr></table></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t168 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=600 class=t167 style="background-color:#242424;width:600px;">
+<table class=t166 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t165 style="padding:48px 50px 48px 50px;"><table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;"><tr><td align=center>
+<table class=t126 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=200 class=t125 style="width:200px;">
+<table class=t124 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t123><div style="font-size:0px;"><img class=t122 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=200 height=59.59375 alt="" src="https://weppso.com/wp-content/uploads/2025/03/cropped-weppsologo.png"/></div></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td><div class=t127 style="mso-line-height-rule:exactly;mso-line-height-alt:20px;line-height:20px;font-size:1px;display:block;">&nbsp;&nbsp;</div></td></tr><tr><td align=center>
+<table class=t132 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t131 style="width:600px;">
+<table class=t130 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t129><p class=t128 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:800;font-style:normal;font-size:18px;text-decoration:none;text-transform:none;letter-spacing:-0.9px;direction:ltr;color:#757575;text-align:center;mso-line-height-rule:exactly;mso-text-raise:1px;">Want updates through more platforms?</p></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td><div class=t133 style="mso-line-height-rule:exactly;mso-line-height-alt:15px;line-height:15px;font-size:1px;display:block;">&nbsp;&nbsp;</div></td></tr><tr><td align=center>
+<table class=t159 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t158 style="width:800px;">
+<table class=t157 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t156 style="padding:10px 0 20px 0;"><div class=t155 style="width:100%;text-align:center;"><div class=t154 style="display:inline-block;"><table class=t153 role=presentation cellpadding=0 cellspacing=0 align=center valign=top>
+<tr class=t152><td></td><td class=t139 width=44 valign=top>
+<table role=presentation width=100% cellpadding=0 cellspacing=0 class=t138 style="width:100%;"><tr><td class=t135 style="width:10px;" width=10></td><td class=t136><a href="https://wa.me/message/JWMHCLS7B6P4F1" style="font-size:0px;" target=_blank><img class=t134 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=24 height=24 alt="" src="https://9dce4a94-b883-459f-bb84-e72dc530ff4a.b-cdn.net/e/5cfaadb3-2a00-4bdc-8195-2aa04853db0b/0439b030-b58a-43e4-b466-32d333e1bd17.png"/></a></td><td class=t137 style="width:10px;" width=10></td></tr></table>
+</td><td class=t145 width=44 valign=top>
+<table role=presentation width=100% cellpadding=0 cellspacing=0 class=t144 style="width:100%;"><tr><td class=t141 style="width:10px;" width=10></td><td class=t142><a href="https://www.facebook.com/share/1Wab5hviiF/?mibextid=wwXIfr" style="font-size:0px;" target=_blank><img class=t140 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=24 height=24 alt="" src="https://9dce4a94-b883-459f-bb84-e72dc530ff4a.b-cdn.net/e/5cfaadb3-2a00-4bdc-8195-2aa04853db0b/6ac92b2f-a982-4056-8038-507635eda1d2.png"/></a></td><td class=t143 style="width:10px;" width=10></td></tr></table>
+</td><td class=t151 width=44 valign=top>
+<table role=presentation width=100% cellpadding=0 cellspacing=0 class=t150 style="width:100%;"><tr><td class=t147 style="width:10px;" width=10></td><td class=t148><a href="https://www.instagram.com/weppso_?igsh=cmV3amxkZ2g4Njl0" style="font-size:0px;" target=_blank><img class=t146 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=24 height=24 alt="" src="https://9dce4a94-b883-459f-bb84-e72dc530ff4a.b-cdn.net/e/5cfaadb3-2a00-4bdc-8195-2aa04853db0b/0e0ead40-2826-4720-abda-0e04b1cf255c.png"/></a></td><td class=t149 style="width:10px;" width=10></td></tr></table>
+</td>
+<td></td></tr>
+</table></div></div></td></tr></table>
+</td></tr></table>
+</td></tr><tr><td align=center>
+<table class=t164 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;"><tr><td width=500 class=t163 style="width:600px;">
+<table class=t162 role=presentation cellpadding=0 cellspacing=0 width=100% style="width:100%;"><tr><td class=t161><p class=t160 style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:12px;text-decoration:none;text-transform:none;direction:ltr;color:#888888;text-align:center;mso-line-height-rule:exactly;mso-text-raise:3px;">Karachi , Sindh, Pakistan</p></td></tr></table>
+</td></tr></table>
+</td></tr></table></td></tr></table>
+</td></tr></table>
+</td></tr></table></td></tr></table></div><div class="gmail-fix" style="display: none; white-space: nowrap; font: 15px courier; line-height: 0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div></body>
+</html>
       `, // HTML body (optional)
     };
 
